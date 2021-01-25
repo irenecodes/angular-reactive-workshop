@@ -8,5 +8,5 @@ export { Project } from './lib/projects/project.model';
 export { ProjectsService } from './lib/projects/projects.service';
 export { CustomersFacade } from './lib/state/customers/customers.facade';
 
-// Expose projects state
+// STEP 2: Expose projects state
 export { ProjectsState } from './lib/state/projects/projects.reducer';

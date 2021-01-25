@@ -33,6 +33,7 @@ const updateProject = (projects, project) => projects.map(p => {
 });
 const deleteProject = (projects, project) => projects.filter(w => project.id !== w.id);
 
+// STEP 1 (see the 3 below to create a reducer)
 // 01 Define the shape of my state
 export interface ProjectsState {
   projects: Project[];

@@ -26,8 +26,10 @@ export class ProjectsComponent implements OnInit {
   constructor(
     private projectsService: ProjectsService,
     private customerService: CustomersService,
+    // STEP 3 wire it up 
     private store: Store<ProjectsState>,
     private ns: NotificationsService) {
+      // Step 4 set projects with an observable and turn it off in another place
       this.projects$ = store.pipe(
         select('projects'),
         map((projectsState: ProjectsState) => projectsState.projects)

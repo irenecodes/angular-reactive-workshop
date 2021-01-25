@@ -12,9 +12,10 @@ import { CustomersEffects } from './customers/customers.effects';
   imports: [
     CommonModule,
     NxModule.forRoot(),
-    StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument({ maxAge: 10 }),
-    EffectsModule.forRoot([
+    // STEP 3 
+    StoreModule.forRoot(reducers), //take the combined reducers and make them available 
+    StoreDevtoolsModule.instrument({ maxAge: 10 }), // hooks to redux dev tools
+    EffectsModule.forRoot([ //if create effects, add them here 
       CustomersEffects
     ]),
   ],
