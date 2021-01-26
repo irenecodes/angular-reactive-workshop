@@ -10,3 +10,6 @@ export { CustomersFacade } from './lib/state/customers/customers.facade';
 
 // STEP 2: Expose projects state
 export { ProjectsState } from './lib/state/projects/projects.reducer';
+
+// Step 9: expose actions to allow it to be consumed in our project
+export {SelectProject, AddProject, UpdateProject, DeleteProject} from './lib/state/projects/projects.actions';

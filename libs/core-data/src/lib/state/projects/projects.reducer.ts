@@ -1,3 +1,4 @@
+import { FUNCTION_TYPE } from '@angular/compiler/src/output/output_ast';
 import { Project } from './../../projects/project.model';
 
 const initialProjects: Project[] = [
@@ -27,6 +28,7 @@ const initialProjects: Project[] = [
   }
 ];
 
+
 const createProject = (projects, project) => [...projects, project];
 const updateProject = (projects, project) => projects.map(p => {
   return p.id === project.id ? Object.assign({}, project) : p;
@@ -48,8 +50,31 @@ export const initialState: ProjectsState = {
 
 // 03 Build the MOST simplest reducer
 export function projectsReducers(
+  // action consists of 1 property. always have a type. will often have a payload. 
   state = initialState, action): ProjectsState {
     switch(action.type) {
+      case 'select':
+        // delegate to a STANDALONE FUNCTION. do not create a nested if/else funct 
+        return {
+          selectedProjectId: action.payload,
+          projects: state.projects
+        }
+      case 'create':
+        // delegate to a STANDALONE FUNCTION. do not create a nested if/else funct 
+        return {
+          selectedProjectId: state.selectedProjectId,
+          projects: createProject(state.projects, action.payload)
+        }
+      case 'update':
+        return {
+          selectedProjectId: state.selectedProjectId,
+          projects: updateProject(state.projects, action.payload)
+        }
+      case 'delete':
+        return {
+          selectedProjectId: state.selectedProjectId,
+          projects: deleteProject(state.projects, action.payload)
+        }
       default:
         return state;
     }
